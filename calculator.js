@@ -10,8 +10,6 @@ const rl = readline.createInterface({
 
 rl.prompt();
 
-let hostNum, subnetMask;
-
 const defaultNetValues = {
   hostNum: 256,
   subnetMask: 24,
@@ -69,9 +67,7 @@ const calcSubnets = (ip, netValues, subnetNum) => {
 
   res.push({ networkID, subnetMask, rangeID, strHostNum, broadcastID });
 
-
   for (let i = 1; i < subnetNum; i++) {
-
     networkID = slicedID + (hostNum * i).toString();
     broadcastID = slicedID + (hostNum * (i + 1) - 1).toString();
     maxRange = slicedID + (hostNum * (i+1) - 2).toString();
